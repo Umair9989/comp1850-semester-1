@@ -9,10 +9,10 @@ print(f"Welcome to LeedsBank's savings calculator {name}!")
 
 # Ask the user to input an amount they want to save every month - this should be an integer.
 # Validate that they have entered an integer.
-print("Please enter the amount that you would like to save monthly, this must be an integer (a whole number)")
-monthly = input()
-check = False
+
 while True:
+    print("Please enter the amount that you would like to save monthly, this must be an integer (a whole number)")
+    monthly = input()
     try:
         monthly_Saving = int(monthly)
         break
