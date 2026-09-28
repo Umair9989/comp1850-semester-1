@@ -17,7 +17,7 @@ while True:
         monthly_Saving = int(monthly)
         break
     except ValueError:
-        print(f"{name}, the value you entered is not an integer amount, please enter an integer value")
+        print(f"{name}, the value you entered is not an integer amount")
 
 print(f"You are going to save £{monthly_Saving} monthly")
 # Calculate the total amount of money they will have saved by the end of the year (amount per month multiplied by 12).
@@ -30,5 +30,5 @@ print(f"You are going to save £{year_saving} yearly")
 
 interest = year_saving * 0.8
 print(f"the amount of interest on your total savings will be £{interest:.2f}")
-total_saving = {year_saving} + {interest}
+total_saving = year_saving + interest
 print(f"In total you will save £{total_saving:.2f}")
