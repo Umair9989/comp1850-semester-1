@@ -1,19 +1,27 @@
-# Worksheet 1.2: Task 2 Solution
+import sys
+from util import read_numbers
+
 try:
-    from util import read_numbers    
-    numbers = read_numbers()   
+    numbers = read_numbers()
+    
+    if not numbers:
+        raise ValueError
+        
     print(f"Maximum = {max(numbers)}")
     print(f"Minimum = {min(numbers)}")
     print(f"Mean = {sum(numbers) / len(numbers)}")
+    
     numbers.sort()
-    num = ((len(numbers)) / 2)
-    if num % 2 == 0:
-        num1 = ((len(numbers) // 2) + ((len(numbers) // 2) + 1)) // 2
-        print(f"Median = {numbers[num1]}")
-    elif num % 2 != 0:
-        num2 = ((len(numbers) // 2) + 1) // 2
-        print(f"Median = {numbers[num2]}")
-except:
-    print("Error: no numbers provided")
-    import sys
-    sys.exit("Error")
+    n = len(numbers)
+    
+    if n % 2 == 1:
+        median = numbers[n // 2]
+    else:
+        median = (numbers[(n // 2) - 1] + numbers[n // 2]) / 2
+        if isinstance(median, float) and median.is_integer():
+            median = int(median)
+            
+    print(f"Median = {median}")
+
+except (ValueError, ZeroDivisionError, EOFError, KeyboardInterrupt):
+    sys.exit("Error: no numbers provided")
