@@ -5,13 +5,14 @@ try:
     print(f"Maximum = {max(numbers)}")
     print(f"Minimum = {min(numbers)}")
     print(f"Mean = {sum(numbers) / len(numbers)}")
+    numbers.sort()
     num = ((len(numbers)) / 2)
     if num % 2 == 0:
         num1 = ((len(numbers) // 2) + ((len(numbers) // 2) + 1)) // 2
-        print(f"Median = {numbers.sort[num1]}")
+        print(f"Median = {numbers[num1]}")
     elif num % 2 != 0:
         num2 = ((len(numbers) // 2) + 1) // 2
-        print(f"Median = {numbers.sort[num2]}")
+        print(f"Median = {numbers[num2]}")
 except:
     print("Error: no numbers provided")
     import sys
