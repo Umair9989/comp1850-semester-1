@@ -4,7 +4,16 @@ from pprint import pprint
 
 # Create music database, as a dictionary of strings mapped to lists
 # (keys are artist names, values are lists of album names)
+songs = {
+    "Funeral": "Arcade Fire",
+    "Suicide": "Suicide",
+    "Harrys House": "Harry Styles",
 
+}
 # Pretty-print the data structure
-
+pprint(songs)
 # Display details of one album recorded by a specific artist
+key = input("Enter a key: ")
+print(songs.get(key, "Key not found!"))
+count = len(songs)
+print(count)
