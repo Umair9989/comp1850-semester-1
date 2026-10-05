@@ -10,11 +10,14 @@ print(both)
 
 # Why does the following code diplay five items?
 
-food = fruit.union(vegetables)
+food = fruit.union(vegetables) # Joins the two sets together
 print(food)
 
 # Add an item to fruit
-
+fruit.add("pear")
+print(fruit)
 # Remove an item from vegetables
-
+vegetables.discard("leek")
+print(vegetables)
 # Find and display symmetric difference of the two sets
+print(fruit.symmetric_difference(vegetables))
