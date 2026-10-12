@@ -8,5 +8,5 @@ while fruit:
 
 
 # Why does this work?
-
+# This is a stack so is a LIFO structure
 # What features of Python does it rely on?
