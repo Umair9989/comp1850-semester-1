@@ -10,6 +10,23 @@
 # find all failed login attempts (POST /login with the response 401)
 # and print these out in a human-readable format:
 # IP address 192.168.1.17 failed to login at 10:42:12 on 2024-10-20
+try:
+    with open(site.log, mode='r', encoding='utf-8') as file:
+        # Read all lines and skip the header
+        lines = file.readlines()
+        data_lines = lines[1:] 
+        
+        for line in data_lines:
+            # Splits line by commas (change to line.split() if separated by whitespace)
+            row = line.strip().split(',')
+            
+            if len(row) >= 6:
+                date, time, ip_address, user_agent, request, status_code = row[:6]
+                
+                if request == 'POST /login' and status_code == '401':
+                    print(f"IP address {ip_address} failed to login at {time} on {date}")
+except FileNotFoundError:
+    print(f"Error: '{site.log}' not found.")
 
 
 # Hints:
