@@ -14,3 +14,23 @@
 # Write each student's name and their average grade to the report
 # hint: use 'w' mode to create a fresh report each time
 # hint: format averages nicely, maybe to 2 decimal places with :.2f
+# Open and read all lines into a list
+with open('student_data.csv', mode='r', encoding='utf-8') as infile:
+    # Read lines and strip newline characters
+    data = [line.strip().split(',') for line in infile.readlines()]
+
+# Create a fresh report file
+with open('report.txt', mode='w', encoding='utf-8') as outfile:
+    # Skip the header row using slicing data[1:]
+    for row in data[1:]:
+        name = row[1]
+        maths = int(row[2])
+        science = int(row[3])
+        history = int(row[4])
+        
+        average = (maths + science + history) / 3
+        
+        # Write directly to the file, formatted to 2 decimal places
+        outfile.write(f"{name}: {average:.2f}\n")
+
+print("Report successfully generated using slicing!")
