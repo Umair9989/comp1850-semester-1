@@ -7,5 +7,5 @@
 # Read the file content
 f = open("../images/feep.pgm")
 # print image dimension (i.e., Dimensions: width x height pixels)
-
+print(f.read)
 # print max gray value (i.e., Max Gray Value: max_gray_value)
