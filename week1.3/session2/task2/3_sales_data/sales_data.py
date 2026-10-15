@@ -68,7 +68,7 @@ def analyze_sales_data(file_path):
 
     # Check if we actually processed any valid data
     if row_count == 0:
-        print("📭 No valid data found in the CSV file.")
+        print("No valid data found in the CSV file.")
         return
 
     # Calculate final core aggregates
