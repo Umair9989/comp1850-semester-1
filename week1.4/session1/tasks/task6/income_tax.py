@@ -33,7 +33,16 @@ def income_tax_calculator(annual_income):
         one decimal point. You can use the round() function,
         e.g round(tax, 1) 0.0 if annual_income is not a positive integer.
     """
+    if annual_income <= 12570:
+        return 0.0
+    elif annual_income <= 50270:
+        tax = (annual_income - 12570) * 0.2
+    elif annual_income <= 125140:
+        tax = (50270 - 12570) * 0.2 + (annual_income - 50270) * 0.4
+    else:
+        tax = (50270 - 12570) * 0.2 + (125140 - 50270) * 0.4 + (annual_income - 125140) * 0.45
 
+    return round(tax, 1)
 
 # Check if the following lines produce the correct output
 print(income_tax_calculator(12000))     # 0.0
