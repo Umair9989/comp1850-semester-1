@@ -6,8 +6,9 @@
     other than any provided template code, was written and developed by
     you independently.
 
-    Name:
+    Name: Mohammed Umair Ahmed
 """
+
 
 def currency_converter(amount, from_currency, to_currency):
 
@@ -18,9 +19,18 @@ def currency_converter(amount, from_currency, to_currency):
         'INR': {'PHP': 0.69, 'CNY': 0.09, 'GBP': 0.01}
     }
 
-    # your code here
+    if from_currency not in conversion_rate or to_currency not in conversion_rate[from_currency]:
+        return None
 
-    return None
+    amount = float(amount)
+
+    if amount < 0:
+        return 0.0
+
+    converted_amount = amount * conversion_rate[from_currency][to_currency]
+    return round(converted_amount, 2)
+
+
 
 # Submit only this file currency_converter.py with the completed function.
 
