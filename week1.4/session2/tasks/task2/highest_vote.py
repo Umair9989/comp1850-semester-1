@@ -16,7 +16,24 @@ def most_frequent_string(votes):
         and int is the count of its occurences
         - None, None: if votes is empty.
     """
+    if not votes:
+        return None, None
 
+    winner = None
+    max_count = 0
+
+    for vote in votes:
+        counter = 0
+
+        for other_vote in votes:
+            if vote == other_vote:
+                counter += 1
+
+        if counter > max_count:
+            max_count = counter
+            winner = vote
+
+    return winner, max_count
     # Your task is to complete the body of the function based on the details in the docstring.
     # Hint 1: You can complete this task with for loops or comprehensions 
     # Hint 2: Think about the properties of the various collection-types
