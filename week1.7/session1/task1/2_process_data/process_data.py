@@ -16,3 +16,14 @@ def process_data(data):
         return None
 
     return sum(data)
+
+input_data = input("Enter a list of integers separated by spaces: ")
+try:
+    data_list = [int(x) for x in input_data.split()]
+    result = process_data(data_list)
+    if result is None:
+        print("The list is empty.")
+    else:
+        print(f"The sum of the list is: {result}")
+except ValueError:
+    print("Please enter valid integers.")

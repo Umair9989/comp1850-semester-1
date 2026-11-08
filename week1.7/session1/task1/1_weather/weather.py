@@ -13,3 +13,6 @@ def comfort_level(temperature):
         return "HOT"
     else:
         return "OK"
+
+temp = input("Enter temperature in degrees Celsius: ")
+print(comfort_level(float(temp)))
