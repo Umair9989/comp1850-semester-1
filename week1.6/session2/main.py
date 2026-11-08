@@ -43,7 +43,7 @@ print("Copied image pixel:", img_copy.get(0, 0))
 print("\nTASK 4: Read an image")
 
 try:
-    loaded_img = Image.read("images/example.pgm")
+    loaded_img = Image.read("/images/coins.pgm")
 
     print("Width:", loaded_img.width)
     print("Height:", loaded_img.height)
