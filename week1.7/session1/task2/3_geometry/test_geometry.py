@@ -41,3 +41,5 @@ def test_circle_constructor_with_centre():
     assert c.centre.x == 2
     assert c.centre.y == 3
 # you can use the default value for centre coordinates
+
+print(test_circle_constructor_with_centre())
