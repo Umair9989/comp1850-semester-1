@@ -62,6 +62,11 @@ plt.show()
 # To practice, here are some tasks to use - remember, the original data is named shop_data
 
 # Create a pie chart to show sales per product
+sales_per_product = shop_data.groupby("Product").sum(numeric_only=True)
+sales_per_product = sales_per_product["Total_Price"]
+
+sales_per_product.plot(kind="pie", title="Sales per Product", autopct="%1.1f%%")
+plt.show()
 
 
 

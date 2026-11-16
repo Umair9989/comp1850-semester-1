@@ -15,25 +15,70 @@ def average_bar_chart(data):
     '''
     Complete this code to produce a bar chart of the total of each 'hours per day' column
     '''
-    pass
+    hours_columns = ['Study_Hours_Per_Day', 'Extracurricular_Hours_Per_Day', 
+                     'Sleep_Hours_Per_Day', 'Social_Hours_Per_Day', 'Physical_Activity_Hours_Per_Day']
+    averages = data[hours_columns].mean()
+    averages.plot(kind='bar', figsize=(10, 6), color='skyblue')
+    plt.xlabel('Activity Type')
+    plt.ylabel('Average Hours Per Day')
+    plt.title('Average Hours Per Day by Activity')
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+    plt.show()
 
 def hours_histogram(data, column_name):
     '''
     Complete this code so that it can display a histogram of any given 'hours per day' column
     '''
-    pass
+    if column_name not in data.columns:
+        print(f"Column '{column_name}' not found in data")
+        return
+    data[column_name].hist(bins=20, edgecolor='black', figsize=(10, 6))
+    plt.xlabel(column_name)
+    plt.ylabel('Frequency')
+    plt.title(f'Distribution of {column_name}')
+    plt.tight_layout()
+    plt.show()
 
 def hours_pie_chart(data, student_id):
     '''
     Complete this code so that it produces a pie chart of any given student's hours per day - this should be selected by student ID (the first column)
     '''
-    pass
+    if student_id < 0 or student_id >= len(data):
+        print(f"Student ID {student_id} not found")
+        return
+    
+    hours_columns = ['Study_Hours_Per_Day', 'Extracurricular_Hours_Per_Day', 
+                     'Sleep_Hours_Per_Day', 'Social_Hours_Per_Day', 'Physical_Activity_Hours_Per_Day']
+    student_data = data.iloc[student_id][hours_columns]
+    
+    student_data.plot(kind='pie', autopct='%1.1f%%', figsize=(10, 8))
+    plt.title(f'Hours Distribution for Student {student_id}')
+    plt.ylabel('')
+    plt.tight_layout()
+    plt.show()
 
 def total_hours_per_stress_level(data, stress_level):
     '''
     Complete this code to create a stacked bar chart showing a breakdown of the total hours worked by students, grouped by their reported stress level.
     '''
-    pass
+    if stress_level not in data['Stress_Level'].unique():
+        print(f"Stress level '{stress_level}' not found in data")
+        return
+    
+    hours_columns = ['Study_Hours_Per_Day', 'Extracurricular_Hours_Per_Day', 
+                     'Sleep_Hours_Per_Day', 'Social_Hours_Per_Day', 'Physical_Activity_Hours_Per_Day']
+    
+    filtered_data = data[data['Stress_Level'] == stress_level][hours_columns]
+    totals = filtered_data.sum()
+    
+    totals.plot(kind='bar', figsize=(10, 6), color='coral')
+    plt.xlabel('Activity Type')
+    plt.ylabel('Total Hours')
+    plt.title(f'Total Hours by Activity for {stress_level} Stress Level Students')
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+    plt.show()
 
 def display_menu():
     print("Student Lifestyle Data Analysis")

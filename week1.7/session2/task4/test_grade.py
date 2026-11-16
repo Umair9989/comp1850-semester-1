@@ -1,4 +1,4 @@
-# Week 1.7, Session 1: Task 4 - unit tests for grade()
+# Week 1.7, Session 2: Task 4 - unit tests for grade()
 
 from grades import MarkError, grade
 
@@ -17,15 +17,21 @@ if __name__ == "__main__":
     assert grade(0) == "Fail"
     assert grade(20) == "Fail"
     assert grade(39) == "Fail"
+    print("Fail grades work correctly")
 
     assert grade(40) == "Pass"
     assert grade(55) == "Pass"
     assert grade(69) == "Pass"
+    print("Pass grades work correctly")
 
     assert grade(70) == "Distinction"
     assert grade(85) == "Distinction"
     assert grade(100) == "Distinction"
+    print("Distinction grades work correctly")
 
     assert_MarkError(-1)
     assert_MarkError(101)
     assert_MarkError("50")
+    print("Invalid marks raise MarkError")
+    
+    print("\nAll tests passed!")
